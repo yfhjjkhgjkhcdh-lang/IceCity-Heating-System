@@ -1,12 +1,14 @@
 ﻿using ConsoleApp19;
 
-internal class GasHeater : Heater
-{
-    
+internal class GasHeater : IHeaterStrategy
 
-    public override double CalcuateEffect(double v)
+{
+    public  double CalcuateEffect(double v)
     {
-        // Implement effect calculation logic for gas heater
-        return 0.8 *v;
+        
+        return 0.8 * v;
     }
+    public string GetName()
+      => "Gas Heater";
+
 }

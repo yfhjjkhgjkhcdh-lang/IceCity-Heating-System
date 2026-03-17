@@ -1,15 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApp19
 {
 
-    public class Heater
+    public  class Heater
 
     {
+        private readonly IHeaterStrategy _strategy;
+
+        public Heater(IHeaterStrategy strategy)
+        {
+            _strategy = strategy;
+        }
+
+        public double CalcuateEffect(double value)
+        {
+            return _strategy.CalcuateEffect(value);
+        }
+        public string GetReportName()
+        {
+            return _strategy.GetName();
+        }
+
+
+
         public int HeaterID { get; set; }
         public double power { get; set; }
         public object? HeaterId { get; internal set; }
@@ -45,18 +64,16 @@ namespace ConsoleApp19
 
 
         }
+      
 
 
 
 
 
-        public virtual double CalcuateEffect(double value)
-        {
-            return 5;
-        }
-        
        
 
-        
+
+
+
     }
 }

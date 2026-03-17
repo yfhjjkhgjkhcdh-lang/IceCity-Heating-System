@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp19
 {
-    internal class DailyUse
+     public class DailyUse
     {
         private DateTime date;
         public DateTime Date

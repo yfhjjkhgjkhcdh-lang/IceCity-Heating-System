@@ -1,11 +1,15 @@
 ﻿using ConsoleApp19;
 
-internal class ElectricHeater : Heater
+internal class ElectricHeater : IHeaterStrategy
+
 {
   
 
-    public override double CalcuateEffect(double VALUE)
+    public  double CalcuateEffect(double VALUE)
     {
         return VALUE * 0.9;
     }
+    public string GetName()
+        => "Electric Heater";
+
 }

@@ -4,29 +4,21 @@ using System.Threading.Tasks;
 
 public static class CityCenterService
 {
-    public static async Task<Heater?> RequestReplacementAsync(
-        Heater oldHeater)
+    public static async Task<Heater> RequestReplacementAsync(Heater oldHeater)
     {
         await Task.Delay(1000);
 
         Console.WriteLine("Replacement requested.");
 
-        if (oldHeater is ElectricHeater)
+        
+        return new Heater(GetSameStrategy(oldHeater));
+    }
+
+    private static IHeaterStrategy GetSameStrategy(Heater heater)
+    {
+        return heater.GetType() switch
         {
-            return new ElectricHeater();
-
-
-
-
-               
-        }
-
-        if (oldHeater is GasHeater)
-        {
-            return new GasHeater();
-                
-        }
-
-        return null;
+            _ => throw new Exception("Unknown type")
+        };
     }
 }

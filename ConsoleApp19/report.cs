@@ -8,16 +8,16 @@ namespace ConsoleApp19
 {
     internal class report
     {
-        public HeatingService heatingService { get; }
-        public report(HeatingService heatingService)
+        public CostServicecs CostServicecs{ get; }
+        public report(CostServicecs CostServicecs)
         {
-            this.heatingService = heatingService;
+            this.CostServicecs = CostServicecs;
         }
         public void GenerateReport(House houes1, List<Heater> heater, int day)
         {
             foreach (var item in heater)
             {
-                double averageCost = heatingService.CalculateMonthlyAverageCost(day, item, houes1);
+                double averageCost = CostServicecs.CalculateMonthlyAverageCost(day, item, houes1);
                 if (heater.GetType() == typeof(ElectricHeater))
                 {
                     Console.WriteLine("Electric Heater Report:");

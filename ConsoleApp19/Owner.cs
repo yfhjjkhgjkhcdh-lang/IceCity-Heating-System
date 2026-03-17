@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp19
 {
-    internal class Owner
+     public class Owner
     {
         public int OwnerID { get;  }
         private string name;
