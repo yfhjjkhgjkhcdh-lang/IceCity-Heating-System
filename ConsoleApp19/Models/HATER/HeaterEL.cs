@@ -1,11 +1,11 @@
-﻿using ConsoleApp19;
+﻿using ConsoleApp19.Strategies.Implementations;
 
 internal class ElectricHeater : IHeaterStrategy
 
 {
-  
 
-    public  double CalcuateEffect(double VALUE)
+
+    public double CalcuateEffect(double VALUE)
     {
         return VALUE * 0.9;
     }

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp19
+﻿namespace ConsoleApp19.Services
 {
-     public class DailyUse
+    public class DailyUse
     {
         private DateTime date;
         public DateTime Date
@@ -14,7 +8,7 @@ namespace ConsoleApp19
             get { return date; }
             set
             {
-                
+
                 date = value;
             }
         }
@@ -22,28 +16,31 @@ namespace ConsoleApp19
         public double workingHours
         {
             get { return WorkingHours; }
-            set {
+            set
+            {
 
-               
+
                 WorkingHours = value;
             }
         }
         private double HeaterValue;
         public double heaterValue
         {
-            get {
-                return HeaterValue; }
+            get
+            {
+                return HeaterValue;
+            }
             set
             {
                 HeaterValue = value;
-                
+
             }
         }
-       public  DailyUse(double workingHours, double heaterValue,DateTime date)
+        public DailyUse(double workingHours, double heaterValue, DateTime date)
         {
             this.workingHours = workingHours;
             this.heaterValue = heaterValue;
-            this.Date = date;
+            Date = date;
         }
 
 

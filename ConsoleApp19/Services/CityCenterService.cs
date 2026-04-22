@@ -1,6 +1,5 @@
 ﻿using ConsoleApp19;
-using System;
-using System.Threading.Tasks;
+using ConsoleApp19.Strategies.Implementations;
 
 public static class CityCenterService
 {
@@ -10,7 +9,7 @@ public static class CityCenterService
 
         Console.WriteLine("Replacement requested.");
 
-        
+
         return new Heater(GetSameStrategy(oldHeater));
     }
 

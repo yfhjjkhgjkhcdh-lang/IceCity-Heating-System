@@ -1,11 +1,11 @@
-﻿using ConsoleApp19;
+﻿using ConsoleApp19.Strategies.Implementations;
 
 internal class GasHeater : IHeaterStrategy
 
 {
-    public  double CalcuateEffect(double v)
+    public double CalcuateEffect(double v)
     {
-        
+
         return 0.8 * v;
     }
     public string GetName()

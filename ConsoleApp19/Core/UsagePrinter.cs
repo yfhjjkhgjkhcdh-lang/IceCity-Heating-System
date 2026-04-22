@@ -1,4 +1,4 @@
-﻿using ConsoleApp19;
+﻿using ConsoleApp19.Models;
 
 public class UsagePrinter
 {

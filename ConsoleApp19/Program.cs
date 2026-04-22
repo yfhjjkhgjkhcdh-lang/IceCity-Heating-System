@@ -1,11 +1,12 @@
 ﻿using ConsoleApp19;
-using System;
-using System.Threading.Channels;
+using ConsoleApp19.Core;
+using ConsoleApp19.Models;
+using ConsoleApp19.Services;
 class Program
 {
     static async Task Main(string[] args)
     {
-        
+
         string ownerName;
         while (true)
         {
@@ -17,7 +18,7 @@ class Program
 
             Console.WriteLine("Invalid name, try again!");
         }
-      
+
 
 
         int id;
@@ -29,7 +30,7 @@ class Program
 
         Owner owner = new Owner(ownerName, id);
 
-       
+
         House houes = new House(owner);
         int choice = 0;
         bool isValid = false;
@@ -40,7 +41,7 @@ class Program
             Console.WriteLine("1 - Electric");
             Console.WriteLine("2 - Gas");
             Console.WriteLine("3 - Solar");
-            string input="";
+            string input = "";
 
             input = Console.ReadLine();
 
@@ -64,7 +65,7 @@ class Program
                 Console.WriteLine("Invalid choice, try again!");
             }
         }
-        var factoryh=new HeaterFactory();
+        var factoryh = new HeaterFactory();
         var strategyh = factoryh.CreateStrategy(choice);
         var heater = new Heater(strategyh);
 
@@ -73,28 +74,28 @@ class Program
         houes.AddHeater(heater);
         houes.Subscribe(heater);
 
-       
 
-       
+
+
         HeatingService service = new HeatingService();
-        var WeatherService= new WeatherService();
+        var WeatherService = new WeatherService();
         var UsagePrinter = new UsagePrinter();
         await service.SafeOpenAsync(houes, 0);
-        
+
         houes.Heaters[0]?.Close();
 
         var weatherData = await WeatherService.LoadLastMonthWeatherAsync();
         houes.DailyUses.AddRange(weatherData);
 
 
-       
-       
+
+
         DateTime now = DateTime.UtcNow.AddMonths(-1);
         int days = DateTime.DaysInMonth(now.Year, now.Month == 1 ? 12 : now.Month - 1);
         //Console.WriteLine();
-       CostType type;
+        CostType type;
 
-       
+
 
         while (true)
         {
@@ -125,14 +126,14 @@ class Program
         UsagePrinter.PrintWithThreads(houes);
         await UsagePrinter.PrintWithTasks(houes);
 
-          //Factory + Strategy
+        //Factory + Strategy
         var factory = new CostStrategyFactory();
         var strategy = factory.GetStrategy(type);
 
-        
+
         var costService = new CostServicecs(strategy);
 
-        
+
         report report = new report(costService);
 
         report.GenerateReport(houes, houes.Heaters, days);
@@ -150,17 +151,17 @@ class Program
         Console.ReadKey();
     }
 
-  
+
 
     //enum HeaterType
     //{
     //    Electric=1,
     //    Gas=2,
-        
+
 
 
     //};
-   
+
 }
 
 

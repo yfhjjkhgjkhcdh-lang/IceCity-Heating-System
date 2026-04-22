@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ConsoleApp19.Services;
 
-namespace ConsoleApp19
+namespace ConsoleApp19.Models
 {
-     public class House
+    public class House
     {
         public Owner Owner { get; }
-        
+
 
         public List<Heater?> Heaters { get; }
         public List<DailyUse> DailyUses { get; }
@@ -25,7 +24,7 @@ namespace ConsoleApp19
 
         public void Subscribe(Heater heater)
         {
-            heater.openHter+= Heater_OpenHeater;
+            heater.openHter += Heater_OpenHeater;
             heater.closeHter += OnHeaterClosed;
         }
 
@@ -39,9 +38,9 @@ namespace ConsoleApp19
             Heater heater = (Heater)sender;
 
             var usage = new DailyUse(
-               
+
                 hours,
-                heater.power,DateTime.UtcNow); 
+                heater.power, DateTime.UtcNow);
 
             DailyUses.Add(usage);
 

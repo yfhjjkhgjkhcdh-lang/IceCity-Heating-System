@@ -1,4 +1,4 @@
-﻿using ConsoleApp19;
+﻿using ConsoleApp19.Services;
 using System.Text.Json;
 
 public class WeatherService

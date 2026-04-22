@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleApp19.Models;
 
-namespace ConsoleApp19
+namespace ConsoleApp19.Services
 {
     internal class CostServicecs
     {
         private readonly ICostStrategy _strategy;
-        public CostServicecs (ICostStrategy strategy)
+        public CostServicecs(ICostStrategy strategy)
         {
             _strategy = strategy;
         }
@@ -31,5 +27,5 @@ namespace ConsoleApp19
     }
 
 
-    
+
 }

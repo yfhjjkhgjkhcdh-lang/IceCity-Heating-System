@@ -1,4 +1,4 @@
-﻿using ConsoleApp19;
+﻿using ConsoleApp19.Strategies.Implementations;
 
 public class SolarStrategy : IHeaterStrategy
 {

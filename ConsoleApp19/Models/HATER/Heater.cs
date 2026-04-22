@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleApp19.Strategies.Implementations;
+using ConsoleApp19.Exceptions;
+
 
 namespace ConsoleApp19
 {
 
-    public  class Heater
+    public class Heater
 
     {
         private readonly IHeaterStrategy _strategy;
@@ -43,7 +40,7 @@ namespace ConsoleApp19
             Random random = new Random();
             if (random.Next(0, 5) == 0)
             {
-                throw new CHeaterFailedExceptioncs("HETAR FALIED");
+                throw new CHeaterFailedExceptions("HEATER FAILED");
 
             }
             _lastopentime = DateTime.UtcNow;
@@ -64,13 +61,13 @@ namespace ConsoleApp19
 
 
         }
-      
 
 
 
 
 
-       
+
+
 
 
 

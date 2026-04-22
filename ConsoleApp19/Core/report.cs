@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleApp19.Models;
+using ConsoleApp19.Services;
 
-namespace ConsoleApp19
+namespace ConsoleApp19.Core
 {
     internal class report
     {
-        public CostServicecs CostServicecs{ get; }
+        public CostServicecs CostServicecs { get; }
         public report(CostServicecs CostServicecs)
         {
             this.CostServicecs = CostServicecs;
@@ -29,6 +26,6 @@ namespace ConsoleApp19
                 Console.WriteLine($"The average monthly cost of  heating is: {averageCost:C}");
             }
         }
-        
+
     }
 }
